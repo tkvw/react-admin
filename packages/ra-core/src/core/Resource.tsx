@@ -72,6 +72,11 @@ const ResourceRoutes: FunctionComponent<ResourceProps> = ({
                         path={`${basePath}/create`}
                         render={routeProps => (
                             <WithPermissions
+                                authParams={{
+                                    route: `${basePath}/create`,
+                                    resource: name,
+                                    action: 'create',
+                                }}
                                 component={create}
                                 basePath={basePath}
                                 {...routeProps}
@@ -85,6 +90,11 @@ const ResourceRoutes: FunctionComponent<ResourceProps> = ({
                         path={`${basePath}/:id/show`}
                         render={routeProps => (
                             <WithPermissions
+                                authParams={{
+                                    route: `${basePath}/:id/show`,
+                                    resource: name,
+                                    action: 'show',
+                                }}
                                 component={show}
                                 basePath={basePath}
                                 id={decodeURIComponent(
@@ -102,6 +112,11 @@ const ResourceRoutes: FunctionComponent<ResourceProps> = ({
                         path={`${basePath}/:id`}
                         render={routeProps => (
                             <WithPermissions
+                                authParams={{
+                                    route: `${basePath}/:id`,
+                                    resource: name,
+                                    action: 'edit',
+                                }}
                                 component={edit}
                                 basePath={basePath}
                                 id={decodeURIComponent(
@@ -119,6 +134,11 @@ const ResourceRoutes: FunctionComponent<ResourceProps> = ({
                         path={`${basePath}`}
                         render={routeProps => (
                             <WithPermissions
+                                authParams={{
+                                    route: `${basePath}`,
+                                    resource: name,
+                                    action: 'list',
+                                }}
                                 component={list}
                                 basePath={basePath}
                                 {...routeProps}
